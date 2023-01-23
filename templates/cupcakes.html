@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/cup-styles.css">
     <title>World Famous Cupcakes</title>
 </head>
 <body>
     <h1>Cupcake Flavors</h1>
         {% for cupcake in cupcakes %}
-        <h3>{{ cupcake["name"] }}</h3>
-        <h4>Flavor: {{ cupcake["flavor"] }}</h4>
-        <h4>Frosting: {{ cupcake["frosting"] }}</h4>
-        <h4><b>Price: ${{ cupcake["price"] }}</b></h4>
-        <a href="{{ url_for('add_a_cupcake', name=cupcake['name']) }}">
-            <button>Add to Cart</button>
-        </a>
+        <div class="cupcake-card">
+            <img src="{{ cupcake["https://media.istockphoto.com/id/874663044/vector/ice-cream-icon.jpg?s=612x612&w=0&k=20&c=dnF9CMtL5zJ_Fy7KEJKXBPbdL_96TyrQnHkoerz8uks="] }}" alt="{{ cupcake["name"] }}">
+            <h3>{{ cupcake["name"] }}</h3>
+            <h4>Flavor: {{ cupcake["flavor"] }}</h4>
+            <h4>Frosting: {{ cupcake["frosting"] }}</h4>
+            <h4><b>Price: ${{ cupcake["price"] }}</b></h4>
+            <a href="{{ url_for('add_a_cupcake', name=cupcake['name']) }}">
+                <button>Add to Cart</button>
+            </a>
+        </div>
     {% endfor %}
     
 </body>

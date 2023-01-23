@@ -18,7 +18,7 @@ def inidividual_cupcakes():
 
 @app.route("/order")
 def order_cupcakes():
-    return render_template("order.html", cupcakes = get_cupcakes("display-cakes.csv"))
+    return render_template("order.html", cupcakes = get_cupcakes("orders.csv"))
 
 @app.route("/add_cupcake/<name>")
 def add_a_cupcake(name):
@@ -26,7 +26,7 @@ def add_a_cupcake(name):
     print(cupcake)
     if cupcake:
         add_cupcake_dictionary("orders.csv", cupcake)
-        return redirect(url_for("home"))
+        return redirect(url_for("home")) 
     else:
         return "Sorry cupcake not found."
 
